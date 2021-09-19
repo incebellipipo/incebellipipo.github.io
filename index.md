@@ -14,7 +14,7 @@ This is my website, and I wonder what this knob does.
 NOT MUCH
 </div>
 
-<script type="text/javascript" src="{{site.baseurl}}/assets/scripts/input-knobs.js"></script>
+<script type="text/javascript" src="{{site.url}}/assets/scripts/input-knobs.js"></script>
 <script type="text/javascript">
 function changeEventHandler(a) {
     document.getElementById("knob-div").style.left = a.value -100 + "px";
