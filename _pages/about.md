@@ -3,7 +3,7 @@ layout: about
 permalink: /about/
 profile:
   align: right
-  image: "{{site.baseurl}}/assets/images/profile.jpg"
+  image: profile.jpg
 published: true
 ---
 
