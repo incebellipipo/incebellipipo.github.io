@@ -3,6 +3,7 @@
 title: Emir Cem Gezer
 description: Software Developer | University of Rhode Island
 
+domain: incebellipipo.github.io
 baseurl: /incebellipipo.github.io/ #name of GitHub repository
 url: "https://incebellipipo.github.io" #custom url to be used instead of GitHub repository
 email: "emircem@uri.edu"
