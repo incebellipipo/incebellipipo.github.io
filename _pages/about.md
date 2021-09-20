@@ -17,4 +17,4 @@ From what I can tell, for the time being, I'll continue to work in robotics, no 
 
 If a task is done in the same exact way more than twice, that shall be automated. Let's say, a software stack has to be installed to an embedded PC that will eventually fry, I will use IT automation tools to ease the pain of such repetitive task. _—This does not apply to sourdough bread making._
 
-Whenever I get a chance, I love collaborating with artists. _ —Who wants to make an interactive work?_
+Whenever I get a chance, I love collaborating with artists. _—Who wants to make an interactive work?_
