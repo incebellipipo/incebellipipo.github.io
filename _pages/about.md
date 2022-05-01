@@ -4,11 +4,11 @@ permalink: /about/
 profile:
   align: right
   image: profile.jpg
-published: true
+published: false
 ---
 
 
-Hey you!
+Hey!
 
 I'm a software developer who builds robots. I solve problems with a multidisciplinary approach and computers have been my weapon of choice for _some_ years now.
 _—Not so multidisciplinary afterall._
