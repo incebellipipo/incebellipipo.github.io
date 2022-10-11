@@ -5,7 +5,7 @@ description: Robotics Researcher | University of Rhode Island
 
 baseurl:  #name of GitHub repository
 url: https://emircem.com #custom url to be used instead of GitHub repository
-email: "emircem@uri.edu"
+email: "emircem.gezer@gmail.com"
 
 
 highlighter: rouge
@@ -18,12 +18,12 @@ paginate_path: /blog/page:num/
 
 # Social media links in footer
 # facebook: "#"
-# twitter: "#"
+twitter: "https://twitter.com/incebellipipo"
 linkedin: "emircemgezer"
 github: "incebellipipo"
 scholar: "citations?user=tkd32OsAAAAJ"
 # researchgate: "#"
-# orcid: "#"
+orcid: "https://orcid.org/0000-0002-6223-9805"
 
 highlighter: rouge
 markdown: kramdown
