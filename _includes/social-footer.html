@@ -8,6 +8,15 @@ href="mailto:{{ site.email | encode_email }}" target="_blank">
 </a>
 {%- endif -%}
 
+{%- if site.work -%}
+<a title="{{ _locale_string_follow | replace: '[NAME]', 'Work' }}"
+class="social-button work" itemprop="sameAs"
+href="{{ site.work }}"
+target="_blank">
+<i class="fa fa-briefcase"></i>
+</a>
+{%- endif -%}
+
 {%- if site.linkedin -%}
 <a title="{{ _locale_string_follow | replace: '[NAME]', 'LinkedIn' }}"
 class="social-button linkedin"
@@ -44,6 +53,15 @@ target="_blank">
 </a>
 {%- endif -%}
 
+{%- if site.scholar -%}
+<a title="{{ _locale_string_follow | replace: '[NAME]', 'Scholar' }}"
+class="social-button scholar" itemprop="sameAs"
+href="https://scholar.google.com/{{ site.scholar }}"
+target="_blank">
+<i class="ai ai-google-scholar"></i>
+</a>
+{%- endif -%}
+
 {%- if site.twitter -%}
 <a title="{{ _locale_string_follow | replace: '[NAME]', 'Twitter' }}"
 class="social-button twitter"
@@ -62,12 +80,16 @@ target="_blank">
 </a>
 {%- endif -%}
 
-{%- if site.scholar -%}
-<a title="{{ _locale_string_follow | replace: '[NAME]', 'Scholar' }}"
-class="social-button scholar" itemprop="sameAs"
-href="https://scholar.google.com/{{ site.scholar }}"
+
+{%- if site.instagram -%}
+<a title="{{ _locale_string_follow | replace: '[NAME]', 'Instagram' }}"
+class="social-button instagram" itemprop="sameAs"
+href="https://instagram.com/{{ site.instagram }}"
 target="_blank">
-<i class="ai ai-google-scholar"></i>
+<i class="fab fa-instagram"></i>
 </a>
 {%- endif -%}
+
+
+
 </div>

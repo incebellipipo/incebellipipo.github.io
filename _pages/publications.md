@@ -4,6 +4,8 @@ permalink: /publications/
 published: true
 ---
 
+- [A Generic Guidance Navigation and Control Framework For Marine Vehicles](https://digitalcommons.uri.edu/cgi/viewcontent.cgi?article=3251&context=theses) - 2022
+
 - [Working toward the development of a generic marine vehicle framework: ROS-MVP](https://doi.org/10.1109/OCEANS47191.2022.9977346) - 2022
 
 - [Acrobatic Low-cost Portable Hybrid AUV (ALPHA): System Design and Preliminary Results](https://doi.org/10.1109/OCEANS47191.2022.9977113) - 2022

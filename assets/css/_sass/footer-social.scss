@@ -8,8 +8,8 @@
   display: inline-block;
   position: relative;
   cursor: pointer;
-  width: 2.125rem;
-  height: 2.125rem;
+  width: 2.20rem;
+  height: 2.20rem;
   border: 0.125rem solid transparent;
   padding: 0;
   text-decoration: none;
@@ -32,6 +32,7 @@
 
 .rounded-social-buttons .fa-twitter,
 .fa-facebook-f,
+.fa-instagram,
 .fa-linkedin,
 .fa-github,
 .fa-orcid,
@@ -39,6 +40,24 @@
 .fa-researchgate,
 .fa-envelope {
   font-size: 25px;
+}
+
+.rounded-social-buttons .social-button.work {
+  background: #777777;
+}
+.rounded-social-buttons .social-button.work:hover, .rounded-social-work .social-button.work:focus {
+  color: #777777;
+  background: #fefefe;
+  border-color: #777777;
+}
+
+.rounded-social-buttons .social-button.instagram {
+  background: #C13584;
+}
+.rounded-social-buttons .social-button.instagram:hover, .rounded-social-buttons .social-button.instagram:focus {
+  color: #C13584;
+  background: #fefefe;
+  border-color: #C13584;
 }
 
 .rounded-social-buttons .social-button.scholar {
@@ -97,7 +116,7 @@
 .rounded-social-buttons .social-button.email:hover, .rounded-social-buttons .social-button.email:focus {
   color: #60c17d;
   background: #fefefe;
-  border-color: #000000;
+  border-color: #60c17d;
 }
 
 .rounded-social-buttons .social-button.orcid {
