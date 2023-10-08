@@ -1,5 +1,7 @@
 FROM incebellipipo/devcontainer:jammy
 
+SHELL ["/bin/bash", "-c"]
+
 ENV RUBY_VERSION 2.7.8
 
 RUN sudo apt update ; \
@@ -18,7 +20,6 @@ RUN sudo apt update ; \
         libffi-dev \
         libgdbm-dev ;\
     curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
-
 
 RUN \
     echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc ;\
