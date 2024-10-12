@@ -1,5 +1,6 @@
 ---
-#layout: compress
+permalink: /demirsu/
+published: true
 ---
 
 <!DOCTYPE html>
@@ -29,13 +30,24 @@
     <script type="text/javascript">
         const floatingItems = document.querySelectorAll('.floating-item, .emoji');
 
-        floatingItems.forEach(item => {
-            setInterval(() => {
-                const [randomX, randomY] = getRandomPosition(window.innerWidth - 100, window.innerHeight - 100);
-                item.style.transform = `translate(${randomX}px, ${randomY}px)`;
-            }, 3000); // Move every 3 seconds
+        document.addEventListener('DOMContentLoaded', () => {
+            // Spread the items out initially
+            floatingItems.forEach(item => {
+                setInitialPosition(item);
+            });
+
+            // Move them immediately after the initial position is set
+            setTimeout(() => {
+                floatingItems.forEach(item => {
+                    moveItem(item); // Move immediately after a short delay
+                });
+
+                // Continuously move items around every 3 seconds
+                moveItemsContinuously();
+            }, 0); // Small delay to let the initial position settle
         });
 
+        // Function to get a random position within the given window size
         function getRandomPosition(maxWidth, maxHeight) {
             const randomX = Math.floor(Math.random() * maxWidth);
             const randomY = Math.floor(Math.random() * maxHeight);
@@ -48,24 +60,21 @@
             item.style.transform = `translate(${randomX}px, ${randomY}px)`;
         }
 
-        // Function to move the items around
-        function moveItemsRandomly() {
-            floatingItems.forEach(item => {
-                setInterval(() => {
-                    const [randomX, randomY] = getRandomPosition(window.innerWidth - 100, window.innerHeight - 100);
-                    item.style.transition = "transform 3s ease";
-                    item.style.transform = `translate(${randomX}px, ${randomY}px)`;
-                }, 3000); // Move every 3 seconds
-            });
+        // Function to move a specific item to a random position
+        function moveItem(item) {
+            const [randomX, randomY] = getRandomPosition(window.innerWidth - 100, window.innerHeight - 100);
+            item.style.transition = "transform 3s ease";
+            item.style.transform = `translate(${randomX}px, ${randomY}px)`;
         }
 
-        // Spread the items out initially
-        floatingItems.forEach(item => {
-            setInitialPosition(item);
-        });
-
-        // Start the random movement
-        moveItemsRandomly();
+        // Function to continuously move items around every 3 seconds
+        function moveItemsContinuously() {
+            floatingItems.forEach(item => {
+                setInterval(() => {
+                    moveItem(item);  // Move each item every 3 seconds
+                }, 3000); // Move every 3 seconds
+            });
+        };
 
     </script>
 

@@ -7,7 +7,7 @@ responsive, dark-mode ready Jekyll theme designed for use as a personal website 
 ## Install
 
 ```bash
-gem install jekyll -v 3.10.0
+bundle install
 ```
 
 ## Features

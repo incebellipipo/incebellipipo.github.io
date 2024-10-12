@@ -1,0 +1,22 @@
+{
+    "name": "Jekyll Development Container",
+    "image": "mcr.microsoft.com/vscode/devcontainers/ruby:3.3",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "rebornix.Ruby",
+                "castwide.solargraph",
+                "eamodio.gitlens"
+            ]
+        }
+    },
+    "postCreateCommand": "bundle install",
+    "postStartCommand": "jekyll serve --incremental",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "remoteUser": "vscode",
+    "mounts": [
+        "source=/path/to/your/repo,target=/workspace,type=bind,consistency=cached"
+    ]
+}
