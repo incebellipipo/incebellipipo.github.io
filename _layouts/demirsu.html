@@ -1,0 +1,158 @@
+---
+#layout: compress
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bu don kimin?</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bu don</br>kimin?</h1>
+
+        <!-- Floating image -->
+        <img src="../assets/images/demirsu/flying-object.jpg" alt="Flying Image" class="floating-item">
+
+        <!-- Floating Emojis -->
+        <div class="emoji">😀</div>
+        <div class="emoji">🚀</div>
+        <div class="emoji">🔥</div>
+        <div class="emoji">🎉</div>
+    </div>
+
+
+    <script type="text/javascript">
+        const floatingItems = document.querySelectorAll('.floating-item, .emoji');
+
+        floatingItems.forEach(item => {
+            setInterval(() => {
+                const [randomX, randomY] = getRandomPosition(window.innerWidth - 100, window.innerHeight - 100);
+                item.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            }, 3000); // Move every 3 seconds
+        });
+
+        function getRandomPosition(maxWidth, maxHeight) {
+            const randomX = Math.floor(Math.random() * maxWidth);
+            const randomY = Math.floor(Math.random() * maxHeight);
+            return [randomX, randomY];
+        }
+
+        // Function to set a random initial position for each floating item
+        function setInitialPosition(item) {
+            const [randomX, randomY] = getRandomPosition(window.innerWidth - 100, window.innerHeight - 100);
+            item.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        // Function to move the items around
+        function moveItemsRandomly() {
+            floatingItems.forEach(item => {
+                setInterval(() => {
+                    const [randomX, randomY] = getRandomPosition(window.innerWidth - 100, window.innerHeight - 100);
+                    item.style.transition = "transform 3s ease";
+                    item.style.transform = `translate(${randomX}px, ${randomY}px)`;
+                }, 3000); // Move every 3 seconds
+            });
+        }
+
+        // Spread the items out initially
+        floatingItems.forEach(item => {
+            setInitialPosition(item);
+        });
+
+        // Start the random movement
+        moveItemsRandomly();
+
+    </script>
+
+    <style>
+        /* Full screen setup */
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Container for everything */
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: url('../assets/images/demirsu/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            filter: brightness(1.2);
+            /* Make the background slightly brighter */
+            z-index: 1;
+        }
+
+        /* The rainbow overlay with mix-blend-mode to act as a filter */
+        .container:before {
+            content: "";
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400% 400%;
+            animation: rainbow-shift 5s infinite linear;
+            mix-blend-mode: overlay;
+            /* Apply rainbow effect as a filter */
+            z-index: 2;
+        }
+
+        @keyframes rainbow-shift {
+            0% {
+                background-position: 0% 100%;
+            }
+
+            50% {
+                background-position: 100% 0%;
+            }
+
+            100% {
+                background-position: 0% 100%;
+            }
+        }
+
+        /* Big text with Instagram-like font style */
+        h1 {
+            position: absolute;
+            color: white;
+            font-family: 'Comic Sans MS', sans-serif;
+            font-size: 5rem;
+            text-align: center;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+        }
+
+        /* Floating image and emoji styles */
+        .floating-item,
+        .emoji {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            animation: float 8s ease-in-out infinite;
+            font-size: 3rem;
+            z-index: 3;
+            /* Ensure they are above the rainbow overlay */
+        }
+
+        .emoji {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</body>
+
+</html>
