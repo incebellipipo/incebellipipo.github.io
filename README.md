@@ -10,6 +10,12 @@ responsive, dark-mode ready Jekyll theme designed for use as a personal website 
 bundle install
 ```
 
+## Run
+
+```bash
+bundle exec jekyll serve --force-polling
+```
+
 ## Features
 - Responsive
 - Respects Dark Mode preference set by user

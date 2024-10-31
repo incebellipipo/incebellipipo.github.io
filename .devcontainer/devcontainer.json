@@ -1,9 +1,9 @@
 {
     "name": "Jekyll Development Container",
-	"image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
-	"features": {
-		"ghcr.io/devcontainers/features/git-lfs:1": {}
-	},
+    "image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
+    "features": {
+        "ghcr.io/devcontainers/features/git-lfs:1": {}
+    },
     "customizations": {
         "vscode": {
             "extensions": [
@@ -11,5 +11,6 @@
                 "vscodevim.vim"
             ]
         }
-    }
+    },
+    "postCreateCommand": "bundle exec jekyll serve --force-polling"
 }
