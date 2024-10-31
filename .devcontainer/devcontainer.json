@@ -1,4 +1,15 @@
-// Write a devcontainer using the Dockerfile in the root of the repository
 {
-    "dockerFile": "devcontainer.dockerfile"
+    "name": "Jekyll Development Container",
+	"image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
+	"features": {
+		"ghcr.io/devcontainers/features/git-lfs:1": {}
+	},
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "rebornix.Ruby",
+                "vscodevim.vim"
+            ]
+        }
+    }
 }
