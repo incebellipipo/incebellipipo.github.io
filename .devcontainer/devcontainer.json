@@ -12,5 +12,5 @@
             ]
         }
     },
-    "postCreateCommand": "bundle exec jekyll serve --force-polling"
+    // "postCreateCommand": "bundle exec jekyll serve --force-polling"
 }
