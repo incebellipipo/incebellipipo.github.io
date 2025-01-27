@@ -4,6 +4,8 @@ permalink: /publications/
 published: true
 ---
 
+- [Symbolic Control for Autonomous Docking of Marine Surface Vessels](https://arxiv.org/pdf/2501.13199) - 2025
+
 - [Maneuvering-based Dynamic Thrust Allocation for Fully-Actuated Vessels](https://doi.org/10.1016/j.ifacol.2024.10.082) - 2024
 
 - [A Generic Guidance Navigation and Control Framework For Marine Vehicles](https://digitalcommons.uri.edu/cgi/viewcontent.cgi?article=3251&context=theses) - 2022
