@@ -4,6 +4,8 @@ permalink: /publications/
 published: true
 ---
 
+- [Digital-physical testbed for ship autonomy studies in the Marine Cybernetics Laboratory basin](https://arxiv.org/pdf/2505.06787) - 2025
+
 - [Symbolic Control for Autonomous Docking of Marine Surface Vessels](https://arxiv.org/pdf/2501.13199) - 2025
 
 - [Maneuvering-based Dynamic Thrust Allocation for Fully-Actuated Vessels](https://doi.org/10.1016/j.ifacol.2024.10.082) - 2024
