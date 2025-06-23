@@ -10,6 +10,8 @@ published: true
 
 - [Maneuvering-based Dynamic Thrust Allocation for Fully-Actuated Vessels](https://doi.org/10.1016/j.ifacol.2024.10.082) - 2024
 
+- [Towards Modular and Accessible AUV Systems](https://doi.org/10.1109/AUV61864.2024.11030404) - 2024
+
 - [A Generic Guidance Navigation and Control Framework For Marine Vehicles](https://digitalcommons.uri.edu/cgi/viewcontent.cgi?article=3251&context=theses) - 2022
 
 - [Working toward the development of a generic marine vehicle framework: ROS-MVP](https://doi.org/10.1109/OCEANS47191.2022.9977346) - 2022
