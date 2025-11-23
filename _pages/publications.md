@@ -4,6 +4,8 @@ permalink: /publications/
 published: true
 ---
 
+- [pacSTL: PAC-Bounded Signal Temporal Logic from Data-Driven Reachability Analysis](https://arxiv.org/pdf/2511.00934) - 2025
+
 - [Digital-physical testbed for ship autonomy studies in the Marine Cybernetics Laboratory basin](https://arxiv.org/pdf/2505.06787) - 2025
 
 - [Symbolic Control for Autonomous Docking of Marine Surface Vessels](https://arxiv.org/pdf/2501.13199) - 2025
