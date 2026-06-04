@@ -38,7 +38,8 @@
 .fa-orcid,
 .ai-google-scholar,
 .fa-researchgate,
-.fa-envelope {
+.fa-envelope,
+.fa-flickr {
   font-size: 25px;
 }
 
@@ -97,6 +98,16 @@
   color: #007bb5;
   background: #fefefe;
   border-color: #007bb5;
+}
+
+.rounded-social-buttons .social-button.flickr {
+  background: #0063dc;
+}
+
+.rounded-social-buttons .social-button.flickr:hover, .rounded-social-buttons .social-button.flickr:focus {
+  color: #0063dc;
+  background: #fefefe;
+  border-color: #0063dc;
 }
 
 .rounded-social-buttons .social-button.github {
