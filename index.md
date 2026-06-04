@@ -6,7 +6,7 @@ published: true
 
 Hi!, I'm a robotics researcher currently working in marine robotics.
 
-This is my website. Wanna <i>press</i> the button?
+This is my website. Here is a knob for you.
 
 <input type="range" class="input-knob" data-src="{{site.baseurl}}/assets/images/knob70.png" data-sprites="100" min="-150" max="150" step="0.4" oninput="inputEventHandler(this)" onchange="changeEventHandler(this)"/>
 

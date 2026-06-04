@@ -90,6 +90,15 @@ target="_blank">
 </a>
 {%- endif -%}
 
+{%- if site.flickr -%}
+<a title="{{ _locale_string_follow | replace: '[NAME]', 'Flickr' }}"
+class="social-button flickr" itemprop="sameAs"
+href="{{ site.flickr }}"
+target="_blank">
+<i class="fab fa-flickr"></i>
+</a>
+{%- endif -%}
+
 
 
 </div>

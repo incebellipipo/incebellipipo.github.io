@@ -26,6 +26,8 @@ scholar: "citations?user=tkd32OsAAAAJ"
 work: "https://www.ntnu.edu/employees/emir.cem.gezer"
 # researchgate: "#"
 orcid: "0000-0002-6223-9805"
+flickr: https://flickr.com/photos/emircem/
+
 
 highlighter: rouge
 markdown: kramdown
