@@ -7,9 +7,9 @@
     <head>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1" name="viewport">
-        <!-- Apply a saved dark theme before anything is drawn; light is the default -->
+        <!-- Apply a theme saved with the switch before anything is drawn; otherwise the CSS follows the system -->
         <script>
-            try { if (localStorage.getItem("theme") === "dark") document.documentElement.dataset.theme = "dark"; } catch (e) {}
+            try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
         </script>
         <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
         <link rel="stylesheet" href="{{site.baseurl}}/assets/css/academicons.css">
@@ -62,12 +62,19 @@
             (function () {
                 var root = document.documentElement;
                 var button = document.querySelector(".theme-switch");
-                button.setAttribute("aria-checked", root.dataset.theme === "dark");
+                var system = window.matchMedia("(prefers-color-scheme: dark)");
+                function isDark() {
+                    return root.dataset.theme ? root.dataset.theme === "dark" : system.matches;
+                }
+                function sync() { button.setAttribute("aria-checked", isDark()); }
+                sync();
+                // keep the label right if the system theme changes while no choice is saved
+                if (system.addEventListener) system.addEventListener("change", sync);
                 button.addEventListener("click", function () {
-                    var dark = root.dataset.theme !== "dark";
-                    if (dark) root.dataset.theme = "dark"; else delete root.dataset.theme;
-                    button.setAttribute("aria-checked", dark);
-                    try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch (e) {}
+                    var theme = isDark() ? "light" : "dark";
+                    root.dataset.theme = theme;
+                    sync();
+                    try { localStorage.setItem("theme", theme); } catch (e) {}
                 });
             })();
         </script>
