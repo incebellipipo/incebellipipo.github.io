@@ -177,6 +177,24 @@ blockquote {
   color: $muted-color;
 }
 
+/* \begin{description}: bold run-in labels, indented bodies */
+.description {
+  margin: 0 0 1em;
+
+  dt {
+    font-weight: 700;
+    margin-top: 0.9em;
+  }
+  dd {
+    margin: 0.15em 0 0 1.5em;
+  }
+  .refs {
+    font-family: $mono-font-family;
+    font-size: 0.75em;
+    white-space: nowrap;
+  }
+}
+
 /* Pagination style in index/home page */
 .pagination {
   margin: 2em 0;

@@ -1,0 +1,23 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+{% for group in site.data.projects %}
+<h1>{{ group.section }}</h1>
+<dl class="description">
+  {% for project in group.projects %}
+  <dt>{{ project.name }}</dt>
+  <dd>
+    {{ project.summary }}
+    <span class="refs">
+      {% if project.code %}[<a href="{{ project.code }}">code</a>]{% endif %}
+      {% if project.docs %}[<a href="{{ project.docs }}">{{ project.docs_label | default: "docs" }}</a>]{% endif %}
+      {% if project.paper %}[<a href="{{ project.paper }}">paper</a>]{% endif %}
+      {% if project.doi %}[<a href="{{ project.doi }}">doi</a>]{% endif %}
+    </span>
+  </dd>
+  {% endfor %}
+</dl>
+{% endfor %}

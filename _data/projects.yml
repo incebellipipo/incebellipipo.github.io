@@ -1,0 +1,76 @@
+# Projects page. Each group is a numbered section; each project takes a name,
+# a short summary, and any of: code, docs, paper, doi.
+
+- section: Marine vehicle control and simulation
+  projects:
+    - name: SkadiPy
+      summary: >-
+        A Python library for the control allocation problem on marine craft:
+        distributing commanded forces and moments over different types of
+        actuators, with several allocation methods to choose from. It
+        accompanies the paper on maneuvering-based dynamic thrust allocation.
+      code: https://github.com/incebellipipo/skadipy
+      paper: https://doi.org/10.1016/j.ifacol.2024.10.082
+
+    - name: shoeboxpy
+      summary: >-
+        Simulation models of a box-shaped vessel in 3 and 6 degrees of
+        freedom, with rigid-body and added mass, Coriolis, damping and
+        restoring forces, integrated with fourth-order Runge&ndash;Kutta. Handy
+        as a lightweight plant for testing controllers, and it can animate the
+        results.
+      code: https://github.com/incebellipipo/shoeboxpy
+      docs: https://emircem.com/shoeboxpy/html/master/index.html
+      doi: https://doi.org/10.5281/zenodo.17277252
+
+    - name: CyberShip Software Suite
+      summary: >-
+        ROS&nbsp;2 packages to simulate, visualise and control the CyberShip
+        model vessels: URDF models, sensor drivers for IMUs and motion capture,
+        a simple simulator, dynamic positioning and thrust allocation, with
+        launch files for vessels such as Voyager and Enterprise.
+      code: https://github.com/incebellipipo/cybership_software_suite
+      docs: https://ntnu-mcs.github.io/cybership_software_suite/
+      doi: https://doi.org/10.5281/zenodo.17233653
+
+    - name: MVP Control
+      summary: >-
+        The low-level vehicle controller of the ROS-MVP marine vehicle
+        framework. It computes actuator commands through a control allocation
+        matrix solved with quadratic programming, built on ROS and its
+        transform tree.
+      code: https://github.com/uri-ocean-robotics/mvp_control
+      docs: https://uri-ocean-robotics.github.io/mvp_control/
+      paper: https://doi.org/10.1109/OCEANS47191.2022.9977346
+
+- section: Research tools
+  projects:
+    - name: Ranked Node Bench
+      summary: >-
+        A browser tool for building Bayesian networks of ranked nodes. You
+        weight the arcs and the node probability tables follow from a doubly
+        truncated Normal (Fenton, Neil &amp; Caballero, 2007). It opens and
+        saves standard XMLBIF and .xdsl files.
+      docs: https://emircem.com/ranked_bbn_bench/
+      docs_label: open
+
+    - name: cartoblobpy
+      summary: >-
+        A Python library for 2D occupancy grids: load maps from images or YAML,
+        convert between world and grid coordinates in ENU or NED, inflate
+        obstacles, and build weighted NetworkX graphs for path planning.
+      code: https://github.com/incebellipipo/cartoblobpy
+
+    - name: blobjugglerpy
+      summary: >-
+        Exports ROS&nbsp;2 rosbag2 recordings to CSV, either merged in
+        PlotJuggler style or one file per topic, with glob topic filters and a
+        batch mode for whole directories of bags.
+      code: https://github.com/incebellipipo/blobjugglerpy
+
+    - name: dockerize
+      summary: >-
+        A shell script that runs ROS in Docker containers mirroring your local
+        user and home directory, with GLX support so graphical tools like
+        Gazebo just work.
+      code: https://github.com/incebellipipo/dockerize
