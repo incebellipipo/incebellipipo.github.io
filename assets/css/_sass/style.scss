@@ -1,6 +1,4 @@
-body {
-  height: 100%;
-}
+/* LaTeX article look, after https://github.com/Hammie217/LatexJekyll */
 
 body {
   max-width: $content-width;
@@ -10,66 +8,113 @@ body {
   font-size: $base-font-size;
   color: $text-color;
   background-color: $body-bg;
-  padding: 2em 1em;
+  padding: 3em 1.25em 2em;
   text-rendering: optimizeLegibility;
-  height: 100%;
+  font-kerning: normal;
+  hyphens: auto;
 
   @media (prefers-color-scheme: dark) {
     background-color: $body-bg-dark;
     color: $text-color-dark;
   }
+
+  @include media-query($on-palm) {
+    font-size: 0.9 * $base-font-size;
+    padding-top: 1.5em;
+  }
 }
 
-h1,h2,h3,h4,h5,h6 {
-  font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
-  font-weight: bold;
-  line-height: 1.8;
-  margin: 0;
-  text-transform: inherit;
+/* \maketitle */
+.latex-title {
+  text-align: center;
+  margin-bottom: 2.5em;
+
+  .title {
+    font-size: 2.1em;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 0.6em;
+  }
+  .author, .date {
+    font-size: 1.2em;
+    margin: 0.3em 0;
+  }
 }
 
+/* Navigation, typeset in small caps */
+.links {
+  margin-top: 1em;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+
+  a {
+    color: inherit;
+    margin: 0 0.6em;
+  }
+  a.active {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+}
+
+/* \section and \subsection, numbered like LaTeX */
+article {
+  counter-reset: section;
+  text-align: justify;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $base-font-family;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 1.6em 0 0.7em;
+  text-align: left;
+}
+h1 { font-size: 1.45em; }
+h2 { font-size: 1.2em; }
+h3 { font-size: 1.05em; }
+
+article h1 {
+  counter-reset: subsection;
+  counter-increment: section;
+  &::before {
+    content: counter(section);
+    margin-right: 1em;
+  }
+}
+article h2 {
+  counter-increment: subsection;
+  &::before {
+    content: counter(section) "." counter(subsection);
+    margin-right: 1em;
+  }
+}
+article.unnumbered h1::before,
+article.unnumbered h2::before,
+article h1.post-headline::before {
+  content: none;
+}
+article h1.post-headline {
+  counter-increment: none;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.6em;
+}
+
+p {
+  margin: 0.8em 0;
+}
 
 a {
-  color: $brand-color;
+  color: $link-color;
   text-decoration: none;
-  &:hover{
-    color: $text-color;
-
-    @media (prefers-color-scheme: dark) {
-      color: $text-color-dark;
-    }
-
-  }
-}
-
-
-
-p a {
-  color: $text-color;
-  text-decoration: none;
-  background: -webkit-linear-gradient(transparent 90%, lighten($brand-color, 10%) 10%);
-  background: -moz-linear-gradient(transparent 90%, lighten($brand-color, 10%) 10%);
-  background: linear-gradient(transparent 90%, lighten($brand-color, 10%) 10%);
-
-  -webkit-box-shadow: inset 0 0 0 0 lighten($brand-color, 10%);
-  box-shadow: inset 0 0 0 0 lighten($brand-color, 10%);
-
-
-  -webkit-transition: box-shadow ease 1s;
-  -moz-transition: box-shadow ease 1s;
-  transition: box-shadow ease 1s;
   &:hover {
-    color: lighten($background-color, 50%);
-    -webkit-box-shadow: inset 0 -100px 0 0 lighten($brand-color, 10%);
-    box-shadow: inset 0 -100px 0 0 lighten($brand-color, 10%);
-
+    text-decoration: underline;
   }
-
   @media (prefers-color-scheme: dark) {
-    color: $text-color-dark;
+    color: $link-color-dark;
   }
 }
-
 
 figure {
   margin: 0;
@@ -81,38 +126,63 @@ img {
 
 pre,
 code {
+  font-family: $mono-font-family;
   overflow: auto;
-  font-size: 0.7*$base-font-size;
-  border-radius: 3px;
-  border: 1px solid $brand-color;
-  > code {
-    border: none;
-  }
+  font-size: 0.85em;
 }
 
 pre {
-  padding: 1em;
-}
-
-code {
-  padding: 0.1em;
+  padding: 0.8em 1em;
+  border-left: 2px solid $muted-color;
 }
 
 blockquote {
-  border-left: 2px solid $brand-color;
-  padding-left: 1em;
-  font-family: Georgia,Times,Times New Roman,serif;
-  font-size: 0.9*$base-font-size;
+  margin: 1em 2.5em;
   font-style: italic;
 }
 
+.meta {
+  color: $muted-color;
+  text-align: center;
+  @media (prefers-color-scheme: dark) {
+    color: $muted-color-dark;
+  }
+}
 
-.headline, .post-headline {
-  font-size: 2em;
-  margin-bottom: -0.4em;
+/* Bibliography (\begin{thebibliography}) */
+.bibliography {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
 
-  @include media-query($on-palm) {
-    font-size: 2em;
+  li {
+    display: grid;
+    grid-template-columns: 2.5em 1fr;
+    column-gap: 0.5em;
+    margin-bottom: 0.9em;
+  }
+  .label {
+    text-align: right;
+  }
+  .me {
+    font-weight: 700;
+  }
+  .cites {
+    color: $muted-color;
+    font-size: 0.8em;
+    white-space: nowrap;
+    @media (prefers-color-scheme: dark) {
+      color: $muted-color-dark;
+    }
+  }
+}
+
+.small-print {
+  font-size: 0.8em;
+  color: $muted-color;
+  @media (prefers-color-scheme: dark) {
+    color: $muted-color-dark;
   }
 }
 
@@ -121,27 +191,10 @@ blockquote {
   margin: 2em 0;
   text-align: center;
 
-  a {
-    &:hover {
-      background-color: transparent;
-      color: #333;
-    }
-  }
-
   a, span {
-    padding: 7px 18px;
-    border: 1px solid #eee;
-    margin-left: -4px;
-    margin-right: -4px;
-    background-color: transparent;
+    padding: 0 0.6em;
     display: inline-block;
   }
-}
-
-
-/* Add video class for iframes to make them responsive */
-.video {
-  width: 100%;
 }
 
 /* Add video class for iframes to make them responsive */

@@ -1,0 +1,28 @@
+---
+layout: default
+title: Publications
+permalink: /publications/
+published: true
+unnumbered: true
+---
+
+<h1>Publications</h1>
+
+{% assign pubs = site.data.scholar %}
+{% capture me %}<span class="me">{{ site.scholar_name }}</span>{% endcapture %}
+<ol class="bibliography">
+{% for pub in pubs %}
+  <li>
+    <span class="label">[{{ pubs.size | minus: forloop.index0 }}]</span>
+    <span>
+      {{ pub.authors | replace: site.scholar_name, me }},
+      &ldquo;<a href="{{ pub.url }}">{{ pub.title }}</a>,&rdquo;
+      {% if pub.venue != "" %}<em>{{ pub.venue }}</em>,{% endif %}
+      {{ pub.year }}.
+      {% if pub.citations > 0 %}<a class="cites" href="{{ pub.scholar_url }}">cited by {{ pub.citations }}</a>{% endif %}
+    </span>
+  </li>
+{% endfor %}
+</ol>
+
+<p class="small-print">Retrieved automatically from <a href="https://scholar.google.com/{{ site.scholar }}">Google Scholar</a>.</p>

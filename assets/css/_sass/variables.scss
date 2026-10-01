@@ -1,24 +1,28 @@
-$base-font-family: 'Work Sans', sans-serif;
+$base-font-family: 'CMU Serif', 'Latin Modern Roman', 'Computer Modern', Georgia, serif;
+$mono-font-family: 'CMU Typewriter', 'Latin Modern Mono', Menlo, monospace;
 $base-font-size:   20px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.7;
+$base-line-height: 1.45;
 
 $spacing-unit:     30px;
 $light-gray: gray;
-$text-color:       #333;
 $background-color: #fdfdfd;
 $brand-color:      #60c17d;
 
-// Color scheme for light
+// Color scheme for light: paper white, ink black, hyperref-blue links
 $body-bg: #fdfdfd;
 $projectbox: #cfe6a4;
-$text-color: #333;
+$text-color: #111;
+$muted-color: #666;
+$link-color: #1f3fa0;
 
 // Color scheme for dark modes
-$body-bg-dark: #061725;
+$body-bg-dark: #161616;
 $projectbox-dark: lighten($body-bg-dark, 10%);
-$text-color-dark: #777;
+$text-color-dark: #ddd;
+$muted-color-dark: #999;
+$link-color-dark: #8fa8ec;
 
 // Colour palette for project boxes
 $theme1: ("one",#388087),("two", #6FB3B8),("three",#BADFE7),("four",#C2EDCE),("five",#F6F6F2);
