@@ -7,6 +7,10 @@
     <head>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1" name="viewport">
+        <!-- Apply a saved dark theme before anything is drawn; light is the default -->
+        <script>
+            try { if (localStorage.getItem("theme") === "dark") document.documentElement.dataset.theme = "dark"; } catch (e) {}
+        </script>
         <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
         <link rel="stylesheet" href="{{site.baseurl}}/assets/css/academicons.css">
 
@@ -23,6 +27,10 @@
     </head>
 
     <body>
+        <div class="theme-switch-wrap">
+            <span class="tex">\documentclass[<button type="button" class="theme-switch" role="switch" aria-checked="false" aria-label="Dark theme" title="Switch theme"><span class="opt-light">light</span><span class="opt-dark">dark</span></button>]{webpage}</span>
+        </div>
+
         <header class="latex-title">
             <p class="title">{{site.title}}</p>
             <p class="author">{{site.description}}</p>
@@ -47,8 +55,22 @@
                     Last updated on {{ site.time | date_to_long_string }}
             </small>
           </p>
+
         </footer>
 
+        <script>
+            (function () {
+                var root = document.documentElement;
+                var button = document.querySelector(".theme-switch");
+                button.setAttribute("aria-checked", root.dataset.theme === "dark");
+                button.addEventListener("click", function () {
+                    var dark = root.dataset.theme !== "dark";
+                    if (dark) root.dataset.theme = "dark"; else delete root.dataset.theme;
+                    button.setAttribute("aria-checked", dark);
+                    try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch (e) {}
+                });
+            })();
+        </script>
     </body>
 
 </html>

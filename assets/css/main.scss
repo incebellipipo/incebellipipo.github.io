@@ -7,6 +7,7 @@
 // Load partials from `sass_dir`
 // Do not make any changes to this file. Go to /_sass and find the appropriate SCSS file and make changes there.
 @use "variables";
+@use "themes";
 @use "footer-social";
 @use "projects";
 @use "profile";

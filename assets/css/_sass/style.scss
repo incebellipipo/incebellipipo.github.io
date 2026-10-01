@@ -15,11 +15,6 @@ body {
   font-kerning: normal;
   hyphens: auto;
 
-  @media (prefers-color-scheme: dark) {
-    background-color: $body-bg-dark;
-    color: $text-color-dark;
-  }
-
   @include media-query($on-palm) {
     font-size: 0.9 * $base-font-size;
     padding-top: 1.5em;
@@ -111,11 +106,14 @@ a {
   color: $link-color;
   text-decoration: none;
   &:hover {
+    color: $link-hover-color;
     text-decoration: underline;
   }
-  @media (prefers-color-scheme: dark) {
-    color: $link-color-dark;
-  }
+}
+
+::selection {
+  background: $accent-color;
+  color: $body-bg;
 }
 
 figure {
@@ -146,9 +144,6 @@ blockquote {
 .meta {
   color: $muted-color;
   text-align: center;
-  @media (prefers-color-scheme: dark) {
-    color: $muted-color-dark;
-  }
 }
 
 /* Bibliography (\begin{thebibliography}) */
@@ -174,18 +169,12 @@ blockquote {
     color: $muted-color;
     font-size: 0.8em;
     white-space: nowrap;
-    @media (prefers-color-scheme: dark) {
-      color: $muted-color-dark;
-    }
   }
 }
 
 .small-print {
   font-size: 0.8em;
   color: $muted-color;
-  @media (prefers-color-scheme: dark) {
-    color: $muted-color-dark;
-  }
 }
 
 /* Pagination style in index/home page */
@@ -275,10 +264,6 @@ $fader-height:     4em;   // the whole height is clickable
   box-shadow: 0 0.15em 0.3em rgba(0, 0, 0, 0.35);
   cursor: grab;
   transition: box-shadow 0.15s, transform 0.15s;
-
-  @media (prefers-color-scheme: dark) {
-    background-color: $body-bg-dark;
-  }
 }
 
 @mixin fader-cap-hover {
@@ -354,5 +339,46 @@ $fader-height:     4em;   // the whole height is clickable
 
     .fig-label { font-weight: 700; }
     output { white-space: nowrap; }
+  }
+}
+
+/* Light/dark switch in the top left corner, typeset as LaTeX source:
+   \documentclass[light]{webpage}, where the class option is the button */
+.theme-switch-wrap {
+  position: absolute;
+  top: calc(1em + env(safe-area-inset-top, 0px));
+  left: 1.25em;
+  color: $muted-color;
+
+  @include media-query($on-palm) {
+    position: static;
+    text-align: left;
+    margin-bottom: 1em;
+  }
+
+  .tex {
+    font-family: $mono-font-family;
+    font-size: 0.6em;
+  }
+}
+
+.theme-switch {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: $link-color;
+  cursor: pointer;
+  text-decoration: underline dotted;
+  text-underline-offset: 0.2em;
+
+  &:hover { color: $link-hover-color; }
+  &:focus { outline: none; }
+  &:focus-visible { outline: 1px dotted currentColor; outline-offset: 0.15em; }
+
+  .opt-dark { display: none; }
+  &[aria-checked="true"] {
+    .opt-light { display: none; }
+    .opt-dark { display: inline; }
   }
 }
