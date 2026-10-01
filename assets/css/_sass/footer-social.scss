@@ -7,7 +7,11 @@
 }
 
 .rounded-social-buttons .social-button {
-  display: inline-block;
+  /* centre the icon with flexbox, independent of the text font's metrics */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
   position: relative;
   cursor: pointer;
   width: 2.20rem;
@@ -19,11 +23,18 @@
   color: #fefefe;
   font-size: 1.5625rem;
   font-weight: normal;
-  line-height: 1.5em;
-  border-radius: 1.6875rem;
+  line-height: 1;
+  border-radius: 0.25rem;
   transition: all 0.5s ease;
   margin-right: 0.25rem;
   margin-bottom: 0.25rem;
+}
+
+/* A block with line-height 1 is exactly one glyph tall, so the flexbox
+   centring above lines up the glyph itself rather than a taller text line */
+.rounded-social-buttons .social-button > i {
+  display: block;
+  line-height: 1;
 }
 
 .rounded-social-buttons .social-button:hover, .rounded-social-buttons .social-button:focus {
