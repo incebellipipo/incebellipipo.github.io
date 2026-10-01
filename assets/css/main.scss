@@ -4,26 +4,12 @@
 
 @charset "utf-8";
 
-// Width of the content area
-$content-width:    44em;
-$on-phone:         450px;
-$on-palm:          660px;
-$on-laptop:        1000px;
-
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
-}
-
-// Import partials from `sass_dir` (defaults to `_sass`)
+// Load partials from `sass_dir`
 // Do not make any changes to this file. Go to /_sass and find the appropriate SCSS file and make changes there.
-@import
-        "variables",
-        "footer-social",
-        "projects",
-        "profile",
-        "footer",
-        "style",
-        "latex-fonts"
-;
+@use "variables";
+@use "footer-social";
+@use "projects";
+@use "profile";
+@use "footer";
+@use "style";
+@use "latex-fonts";

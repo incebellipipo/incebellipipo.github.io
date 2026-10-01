@@ -1,0 +1,68 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [master]
+  schedule:
+    - cron: "17 4 * * 1" # every Monday, to refresh publications
+  workflow_dispatch:
+
+permissions:
+  contents: write # commit refreshed publication data
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Scholar sometimes serves a CAPTCHA to CI runners; the committed
+      # _data/scholar.json is used when that happens.
+      - name: Fetch publications from Google Scholar
+        id: scholar
+        continue-on-error: true
+        run: python3 scripts/fetch_scholar.py
+
+      - name: Commit refreshed publications
+        if: steps.scholar.outcome == 'success'
+        continue-on-error: true
+        run: |
+          if git diff --quiet -- _data/scholar.json; then
+            echo "No changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/scholar.json
+          git commit -m "chore: update publications from Google Scholar"
+          git push
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

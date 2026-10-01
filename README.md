@@ -4,24 +4,29 @@ responsive, dark-mode ready Jekyll theme designed for use as a personal website 
 
 ![Gradfolio Template Homepage](https://user-images.githubusercontent.com/2485715/110634179-acaa7e00-81cf-11eb-8846-062ecf961d1e.png)
 
-## Install
+## Develop
+
+Open the folder in the dev container (VS Code: *Reopen in Container*); it runs
+`bundle install` for you. Otherwise, with Ruby 3.3:
 
 ```bash
 bundle install
+bundle exec jekyll serve --livereload
 ```
 
-## Run
+## Deploy
 
-```bash
-bundle exec jekyll serve --force-polling
-```
+`.github/workflows/pages.yml` builds the site with Jekyll 4 and deploys it to
+GitHub Pages on every push to `master`, every Monday, and on demand from the
+Actions tab. In the repository settings, *Pages → Build and deployment →
+Source* must be set to **GitHub Actions**.
 
 ## Publications
 
-The publications page is generated from `_data/scholar.json`, which is scraped
-from the Google Scholar profile set by `scholar:` in `_config.yml`. The
-`Update publications from Google Scholar` workflow refreshes it every Monday and
-can be run by hand from the Actions tab. To refresh locally:
+The publications page is generated from `_data/scholar.json`, scraped from the
+Google Scholar profile set by `scholar:` in `_config.yml`. Each deploy refreshes
+it first and commits any changes; if Scholar blocks the request, the committed
+copy is used. To refresh locally:
 
 ```bash
 python3 scripts/fetch_scholar.py

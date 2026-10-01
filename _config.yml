@@ -30,9 +30,6 @@ orcid: "0000-0002-6223-9805"
 flickr: https://flickr.com/photos/emircem/
 
 
-highlighter: rouge
-markdown: kramdown
-
 # Tracker
 analytics: G-WBF9GYFBXX
 
@@ -54,7 +51,7 @@ collections:
     permalink: /projects/:path/
 
 sass:
-  sass_dir: /assets/css/_sass
+  sass_dir: assets/css/_sass
   style: compressed
 
 include:
@@ -62,7 +59,13 @@ include:
 
 exclude:
   - README.md
-  - LICENSE.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - scripts/
+  - vendor/
+  - .devcontainer/
+  - .github/
 
 plugins:
   - jekyll-seo-tag

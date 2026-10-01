@@ -1,8 +1,21 @@
 {
     "name": "Jekyll Development Container",
-    "image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
+    "image": "mcr.microsoft.com/devcontainers/jekyll:2-bookworm",
     "features": {
         "ghcr.io/devcontainers/features/git-lfs:1": {}
+    },
+    // The image's gem directory is not writable by the vscode user, so keep
+    // the bundle in the (git-ignored) workspace instead.
+    "containerEnv": {
+        "BUNDLE_PATH": "${containerWorkspaceFolder}/vendor/bundle"
+    },
+    "postCreateCommand": "bundle install",
+    "forwardPorts": [4000],
+    "portsAttributes": {
+        "4000": {
+            "label": "Jekyll",
+            "onAutoForward": "openBrowser"
+        }
     },
     "customizations": {
         "vscode": {
@@ -11,6 +24,6 @@
                 "vscodevim.vim"
             ]
         }
-    },
-    // "postCreateCommand": "bundle exec jekyll serve --force-polling"
+    }
+    // Serve with: bundle exec jekyll serve --livereload --force-polling
 }
