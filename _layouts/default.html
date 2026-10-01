@@ -2,18 +2,13 @@
 # layout: compress
 ---
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
     <head>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1" name="viewport">
         <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
         <link rel="stylesheet" href="{{site.baseurl}}/assets/css/academicons.css">
-
-        <h1 class="post-headline">{{site.title}}</h1>
-        <h3 class="post-description">{{site.description}}</h3>
-
-        {% include navigation.html %}
 
         {% seo %}
 
@@ -28,25 +23,31 @@
     </head>
 
     <body>
+        <header class="latex-title">
+            <p class="title">{{site.title}}</p>
+            <p class="author">{{site.description}}</p>
+            <p class="date">{{ site.time | date: '%B %Y' }}</p>
+            {% include navigation.html %}
+        </header>
+
         <main>
-            <article>
+            <article{% if page.unnumbered %} class="unnumbered"{% endif %}>
                 {{ content }}
             </article>
         </main>
 
         <footer>
+          {% include social-footer.html %}
+
           <p class="copy">
             <small> &copy; {{site.title}} {{ site.time | date: '%Y' }}
-                    | Powered by Jekyll and
-                    <a target="_blank" href="https://github.com/jitinnair1/gradfolio/">Gradfolio</a>.
+                    | Powered by Jekyll,
+                    <a target="_blank" href="https://github.com/jitinnair1/gradfolio/">Gradfolio</a> and
+                    <a target="_blank" href="https://github.com/Hammie217/LatexJekyll">LatexJekyll</a>.
                     Last updated on {{ site.time | date_to_long_string }}
             </small>
           </p>
-
-        {% include social-footer.html %}
-
         </footer>
-
 
     </body>
 

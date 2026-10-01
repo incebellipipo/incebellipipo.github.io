@@ -16,6 +16,17 @@ bundle install
 bundle exec jekyll serve --force-polling
 ```
 
+## Publications
+
+The publications page is generated from `_data/scholar.json`, which is scraped
+from the Google Scholar profile set by `scholar:` in `_config.yml`. The
+`Update publications from Google Scholar` workflow refreshes it every Monday and
+can be run by hand from the Actions tab. To refresh locally:
+
+```bash
+python3 scripts/fetch_scholar.py
+```
+
 ## Features
 - Responsive
 - Respects Dark Mode preference set by user
@@ -40,6 +51,7 @@ Once you have personalised and tested the site, you can create a new repo, uploa
 - [al-folio](https://github.com/alshedivat/al-folio)
 - [noir](https://github.com/essentialenemy/noir)
 - [jekyll-TeXt-theme](https://github.com/kitian616/jekyll-TeXt-theme)
+- [LatexJekyll](https://github.com/Hammie217/LatexJekyll) (typography and Computer Modern fonts)
 
 ## License
 MIT License

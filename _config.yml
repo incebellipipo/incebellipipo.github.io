@@ -23,6 +23,7 @@ paginate_path: /blog/page:num/
 linkedin: "emircemgezer"
 github: "incebellipipo"
 scholar: "citations?user=tkd32OsAAAAJ"
+scholar_name: "Emir Cem Gezer" # bolded in the publication list
 work: "https://www.ntnu.edu/employees/emir.cem.gezer"
 # researchgate: "#"
 orcid: "0000-0002-6223-9805"
