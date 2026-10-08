@@ -74,3 +74,10 @@
         user and home directory, with GLX support so graphical tools like
         Gazebo just work.
       code: https://github.com/incebellipipo/dockerize
+
+    - name: SystemOne API tutorial for Marine autonomy
+      summary: >-
+        A tutorial to construct SystemOne API calls. Marine autonomy as the use
+        case. Includes comparison between LLMs and SystemOne API calls.
+      docs: https://emircem.com/systemone_maritime_tutorial
+      docs_label: open
