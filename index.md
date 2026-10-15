@@ -5,7 +5,20 @@ published: true
 ---
 
 <div class="abstract">
-<p class="abstract-title">Abstract</p>
+<p class="abstract-title">Graphical Abstract</p>
+{% assign photos = site.static_files | where_exp: "f", "f.path contains '/assets/images/profile'" | where: "extname", ".jpg" %}
+<figure class="side-figure">
+  <img id="profile-photo" alt="Emir Cem Gezer" width="300" height="300">
+  <noscript><img alt="Emir Cem Gezer" src="{{ photos.first.path | relative_url }}" width="300" height="300"></noscript>
+  <script>
+    // a different photo on every visit, from any assets/images/profileNNN.jpg
+    (function () {
+      var photos = [{% for f in photos %}"{{ f.path | relative_url }}"{% unless forloop.last %}, {% endunless %}{% endfor %}];
+      document.getElementById("profile-photo").src = photos[Math.floor(Math.random() * photos.length)];
+    })();
+  </script>
+  <figcaption><span class="fig-label">Figure 1:</span> The author.</figcaption>
+</figure>
 <p>I am a robotics researcher and Ph.D. candidate in Marine Technology at NTNU, where I develop risk-aware and safeguarding control systems that keep autonomous ships safe as their propulsion, power, and control systems interact. Before NTNU, I built a generic guidance, navigation, and control framework for marine vehicles and the software and electronics for a seabed-mapping AUV at the University of Rhode Island. Before that, I spent several years writing mission-critical software for indoor logistics robots and doing swarm robotics research. My interests include marine vehicle control and guidance, marine autonomy, safety-critical controllers, and risk awareness. Outside the lab, I collaborate with artists on interactive audio-visual installations.</p>
 <p class="keywords"><em>Keywords</em>&mdash;marine autonomy, safety-critical control, risk awareness, guidance and control.</p>
 </div>
@@ -13,7 +26,7 @@ published: true
 <figure class="latex-slider">
   <input type="range" id="speed" min="-150" max="150" step="0.4" value="0" aria-label="Tangerine velocity" oninput="inputEventHandler(this)"/>
   <div class="axis" aria-hidden="true"><span>&minus;15</span><span>0</span><span>15</span></div>
-  <figcaption><span class="fig-label">Figure 1:</span> Tangerine velocity, <output for="speed" id="speed-value"><i>v</i> = 0.0</output>. Drag to excite the system; a control barrier function keeps \(h_{ij} = \|p_i - p_j\|^2 - D^2 \geq 0\).</figcaption>
+  <figcaption><span class="fig-label">Figure 2:</span> Tangerine velocity, <output for="speed" id="speed-value"><i>v</i> = 0.0</output>. Drag to excite the system; a control barrier function keeps \(h_{ij} = \|p_i - p_j\|^2 - D^2 \geq 0\).</figcaption>
 </figure>
 
 <canvas id="tangerineCanvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>

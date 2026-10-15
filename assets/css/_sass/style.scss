@@ -235,6 +235,7 @@ blockquote {
 
 /* \begin{abstract} */
 .abstract {
+  display: flow-root; // contain the side figure
   margin: 0 3em 2.5em;
   font-size: 0.9em;
   text-align: justify;
@@ -253,8 +254,41 @@ blockquote {
     text-indent: 0;
   }
 
+  .side-figure p { text-indent: 0; }
+
   @include media-query($on-palm) {
     margin: 0 0.5em 2em;
+  }
+}
+
+/* \begin{wrapfigure}{r}: a figure the text flows around */
+.side-figure {
+  float: right;
+  width: 10em;
+  margin: 0.3em 0 0.6em 1.2em;
+  text-align: center;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    position: relative;
+    z-index: -2; // below the tangerine canvas (-1), so they fly over it
+  }
+  figcaption {
+    margin-top: 0.4em;
+    font-size: 0.9em;
+    text-indent: 0;
+    hyphens: manual;
+    .fig-label { font-weight: 700; }
+  }
+
+  @include media-query($on-phone) {
+    float: none;
+    width: 60%;
+    margin: 0.5em auto 1em;
   }
 }
 
