@@ -75,9 +75,52 @@
         Gazebo just work.
       code: https://github.com/incebellipipo/dockerize
 
-    - name: SystemOne API tutorial for Marine autonomy
+    - name: Documentation template
       summary: >-
-        A tutorial to construct SystemOne API calls. Marine autonomy as the use
-        case. Includes comparison between LLMs and SystemOne API calls.
-      docs: https://emircem.com/systemone_maritime_tutorial
-      docs_label: open
+        A Jekyll template for lecture notes and project documentation. Pages
+        are plain markdown that reads well on GitHub and builds into a site
+        with a LaTeX-article look, MathJax, Mermaid diagrams, Jupyter
+        notebooks as pages and a light/dark switch, deployed by a GitHub
+        Pages workflow.
+      code: https://github.com/incebellipipo/lecture_note_template
+      docs: https://emircem.com/lecture_note_template/
+
+    - name: texbundle
+      summary: >-
+        Zips only the files a LaTeX document actually needs. It compiles once
+        with <code>-recorder</code> and bundles the project files LaTeX opened,
+        leaving out TeX distribution files and build artifacts. Handy for a
+        clean source archive for arXiv, a journal or a co-author.
+      code: https://github.com/incebellipipo/texbundle
+      docs: https://pypi.org/project/texbundle/
+      docs_label: pypi
+
+- section: Technical notes &amp; tutorials
+  projects:
+    - name: Git for Marine Technology
+      summary: >-
+        A short, practical git course for marine technology students, written
+        as runnable Jupyter notebooks: commits, branches, merging, rebase,
+        remotes, forks, cherry-pick and submodules, practised on a throwaway
+        repository versioning a box-shaped barge.
+      code: https://github.com/incebellipipo/lecture_note_git_scm
+      docs: https://emircem.com/lecture_note_git_scm/
+
+    - name: Introduction to Linux Programming
+      summary: >-
+        Sample C code from a Linux system programming workshop at Anadolu
+        University: file operations, sockets, process management,
+        multithreading and inter-process communication with the POSIX and
+        System&nbsp;V APIs, plus small projects such as an HTTP server and a
+        toy shell.
+      code: https://github.com/incebellipipo/introduction_to_linux_programming
+      docs: https://emircem.com/introduction_to_linux_programming/
+
+    - name: System One for Marine Autonomy
+      summary: >-
+        A tutorial on building System One API requests, with collision
+        avoidance for an autonomous surface vessel as the case study. It
+        contrasts System One with LLM responses and works through gating and
+        combining the answers, with the maths written out.
+      code: https://github.com/incebellipipo/tutorial_systemone_maritime
+      docs: https://emircem.com/tutorial_systemone_maritime/

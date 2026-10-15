@@ -1,0 +1,22 @@
+# Preview the site locally:
+#   docker compose up
+# then open http://localhost:4000/
+#
+# Jekyll watches the files and rebuilds on every save; the browser reloads
+# itself through livereload.
+services:
+  site:
+    image: ruby:3.3
+    working_dir: /srv/site
+    command: >
+      bash -c "bundle install --quiet &&
+               bundle exec jekyll serve --host 0.0.0.0 --livereload"
+    ports:
+      - "4000:4000"
+      - "35729:35729" # livereload
+    volumes:
+      - .:/srv/site
+      - gems:/usr/local/bundle # keep installed gems between runs
+
+volumes:
+  gems:

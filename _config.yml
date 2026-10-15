@@ -66,6 +66,7 @@ exclude:
   - vendor/
   - .devcontainer/
   - .github/
+  - docker-compose.yml
 
 plugins:
   - jekyll-seo-tag
