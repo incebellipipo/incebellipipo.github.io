@@ -5,40 +5,29 @@
   projects:
     - name: SkadiPy
       summary: >-
-        A Python library for the control allocation problem on marine craft:
-        distributing commanded forces and moments over different types of
-        actuators, with several allocation methods to choose from. It
-        accompanies the paper on maneuvering-based dynamic thrust allocation.
+        A Python library for the control allocation problem on marine craft: distributing commanded forces and moments over different types of actuators, with several allocation methods to choose from.
+        It accompanies the paper on maneuvering-based dynamic thrust allocation.
       code: https://github.com/incebellipipo/skadipy
       paper: https://doi.org/10.1016/j.ifacol.2024.10.082
 
     - name: shoeboxpy
       summary: >-
-        Simulation models of a box-shaped vessel in 3 and 6 degrees of
-        freedom, with rigid-body and added mass, Coriolis, damping and
-        restoring forces, integrated with fourth-order Runge&ndash;Kutta. Handy
-        as a lightweight plant for testing controllers, and it can animate the
-        results.
+        A Python library for simulating box-shaped vessels in 3 and 6 degrees of freedom, with rigid-body and added mass, Coriolis, damping and restoring forces, integrated with fourth-order Runge&ndash;Kutta. Handy as a lightweight plant for testing controllers, and it can animate the results.
       code: https://github.com/incebellipipo/shoeboxpy
       docs: https://emircem.com/shoeboxpy/html/master/index.html
       doi: https://doi.org/10.5281/zenodo.17277252
 
     - name: CyberShip Software Suite
       summary: >-
-        ROS&nbsp;2 packages to simulate, visualise and control the CyberShip
-        model vessels: URDF models, sensor drivers for IMUs and motion capture,
-        a simple simulator, dynamic positioning and thrust allocation, with
-        launch files for vessels such as Voyager and Enterprise.
+        ROS&nbsp;2 packages to simulate, visualise and control the CyberShip model vessels: URDF models, sensor drivers for IMUs and motion capture, a simple simulator, dynamic positioning and thrust allocation.
       code: https://github.com/incebellipipo/cybership_software_suite
       docs: https://ntnu-mcs.github.io/cybership_software_suite/
       doi: https://doi.org/10.5281/zenodo.17233653
 
     - name: MVP Control
       summary: >-
-        The low-level vehicle controller of the ROS-MVP marine vehicle
-        framework. It computes actuator commands through a control allocation
-        matrix solved with quadratic programming, built on ROS and its
-        transform tree.
+        The low-level vehicle controller of the ROS-MVP marine vehicle framework.
+        It computes actuator commands through a control allocation matrix solved with quadratic programming, built on ROS and its transform tree.
       code: https://github.com/uri-ocean-robotics/mvp_control
       docs: https://uri-ocean-robotics.github.io/mvp_control/
       paper: https://doi.org/10.1109/OCEANS47191.2022.9977346
@@ -47,80 +36,60 @@
   projects:
     - name: Ranked Node Bench
       summary: >-
-        A browser tool for building Bayesian networks of ranked nodes. You
-        weight the arcs and the node probability tables follow from a doubly
-        truncated Normal (Fenton, Neil &amp; Caballero, 2007). It opens and
-        saves standard XMLBIF and .xdsl files.
+        A browser tool for building Bayesian networks of ranked nodes.
+        You weight the arcs and the node probability tables follow from a doubly
+        truncated Normal (Fenton, Neil &amp; Caballero, 2007).
+        It opens and saves standard XMLBIF and .xdsl files.
       docs: https://emircem.com/ranked_bbn_bench/
       docs_label: open
 
     - name: cartoblobpy
       summary: >-
-        A Python library for 2D occupancy grids: load maps from images or YAML,
-        convert between world and grid coordinates in ENU or NED, inflate
-        obstacles, and build weighted NetworkX graphs for path planning.
+        A Python library for 2D occupancy grids: load maps from images or YAML, convert between world and grid coordinates in ENU or NED, inflate obstacles, and build weighted NetworkX graphs for path planning.
       code: https://github.com/incebellipipo/cartoblobpy
 
     - name: blobjugglerpy
       summary: >-
-        Exports ROS&nbsp;2 rosbag2 recordings to CSV, either merged in
-        PlotJuggler style or one file per topic, with glob topic filters and a
-        batch mode for whole directories of bags.
+        Exports ROS&nbsp;2 rosbag2 recordings to CSV, either merged in PlotJuggler style or one file per topic, with glob topic filters and a batch mode for whole directories of bags.
       code: https://github.com/incebellipipo/blobjugglerpy
 
     - name: dockerize
       summary: >-
-        A shell script that runs ROS in Docker containers mirroring your local
-        user and home directory, with GLX support so graphical tools like
-        Gazebo just work.
+        A shell script that runs ROS in Docker containers mirroring your local user and home directory, with GLX support so graphical tools like Gazebo just work.
       code: https://github.com/incebellipipo/dockerize
 
     - name: Documentation template
       summary: >-
-        A Jekyll template for lecture notes and project documentation. Pages
-        are plain markdown that reads well on GitHub and builds into a site
-        with a LaTeX-article look, MathJax, Mermaid diagrams, Jupyter
-        notebooks as pages and a light/dark switch, deployed by a GitHub
-        Pages workflow.
+        A Jekyll template for lecture notes and project documentation.
+        Pages are plain markdown that reads well on GitHub and builds into a site with a LaTeX-article look, MathJax, Mermaid diagrams, Jupyter notebooks as pages and a light/dark switch, deployed by a GitHub Pages workflow.
       code: https://github.com/incebellipipo/lecture_note_template
       docs: https://emircem.com/lecture_note_template/
 
     - name: texbundle
       summary: >-
-        Zips only the files a LaTeX document actually needs. It compiles once
-        with <code>-recorder</code> and bundles the project files LaTeX opened,
-        leaving out TeX distribution files and build artifacts. Handy for a
-        clean source archive for arXiv, a journal or a co-author.
+        Zips only the files a LaTeX document actually needs. It compiles once with <code>-recorder</code> and bundles the project files LaTeX opened, leaving out TeX distribution files and build artifacts.
+        Handy for a clean source archive for arXiv, a journal or a co-author.
       code: https://github.com/incebellipipo/texbundle
       docs: https://pypi.org/project/texbundle/
       docs_label: pypi
 
 - section: Technical notes &amp; tutorials
   projects:
-    - name: Git for Marine Technology
+    - name: git vesion control system tutorial
       summary: >-
-        A short, practical git course for marine technology students, written
-        as runnable Jupyter notebooks: commits, branches, merging, rebase,
-        remotes, forks, cherry-pick and submodules, practised on a throwaway
-        repository versioning a box-shaped barge.
+        A short, practical git course for students, written as runnable Jupyter notebooks: commits, branches, merging, rebase, remotes, forks, cherry-pick and submodules, practised on a throwaway repository versioning a box-shaped barge.
       code: https://github.com/incebellipipo/lecture_note_git_scm
       docs: https://emircem.com/lecture_note_git_scm/
 
     - name: Introduction to Linux Programming
       summary: >-
-        Sample C code from a Linux system programming workshop at Anadolu
-        University: file operations, sockets, process management,
-        multithreading and inter-process communication with the POSIX and
-        System&nbsp;V APIs, plus small projects such as an HTTP server and a
-        toy shell.
+        Sample C code from a Linux system programming workshop: file operations, sockets, process management, multithreading and inter-process communication with the POSIX and System&nbsp;V APIs, plus small projects such as an HTTP server and a toy shell.
       code: https://github.com/incebellipipo/introduction_to_linux_programming
       docs: https://emircem.com/introduction_to_linux_programming/
 
     - name: System One for Marine Autonomy
       summary: >-
-        A tutorial on building System One API requests, with collision
-        avoidance for an autonomous surface vessel as the case study. It
-        contrasts System One with LLM responses and works through gating and
-        combining the answers, with the maths written out.
+        A tutorial on building System One API requests, with collision avoidance for an autonomous surface vessel as the case study.
+        It contrasts System One with LLM responses and works through gating and combining the answers, with the maths written out.
       code: https://github.com/incebellipipo/tutorial_systemone_maritime
       docs: https://emircem.com/tutorial_systemone_maritime/
